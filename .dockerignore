@@ -1,0 +1,5 @@
+build/
+ui/elm-stuff/
+priv/data/*.db*
+.git/
+*.log

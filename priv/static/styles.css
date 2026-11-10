@@ -1,0 +1,881 @@
+:root {
+  /* Horse Blood / Aged Wine Core Ramp */
+  --wine-950: #1b0509;
+  --wine-900: #330911;
+  --wine-800: #54101b;
+  --wine-700: #6e1624;
+  --wine-600: #8c1d2f;
+  --wine-200: #dfd0d3;
+  --wine-50: #f9f4f5;
+
+  /* Archival Cotton Vellum & Espresso Ledger Ink */
+  --paper: #f4efe8;
+  --sheet: #fbf9f6;
+  --sheet-tint: #f0e9df;
+  --rule: #dcd3c7;
+  --rule-strong: #bfb2a2;
+  --rule-heavy: #1b0509;
+
+  --ink: #171012;
+  --ink-mid: #4e4245;
+  --ink-faint: #7b6c70;
+
+  /* Restrained Ink Accents (Zero Pastel Bubbles) */
+  --ink-settled: #164a2b;
+  --ink-hold: #7c3f0e;
+  --ink-alert: #7f1717;
+
+  --font-serif: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: 13.5px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+.mono {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+}
+
+.serif {
+  font-family: var(--font-serif);
+}
+
+/* ==========================================================================
+   FULL-WIDTH OBSIDIAN WINE MASTHEAD (ZERO CRAMPED SIDEBAR IN SPLIT VIEW)
+   ========================================================================== */
+
+.masthead {
+  background: var(--wine-950);
+  color: #f6f1ec;
+  border-bottom: 2px solid var(--wine-800);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.masthead-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  min-height: 54px;
+}
+
+.masthead-left {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  min-width: 0;
+}
+
+.brand-seal {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 8px 0;
+  flex-shrink: 0;
+}
+
+.seal-glyph {
+  width: 26px;
+  height: 26px;
+  background: var(--wine-800);
+  border: 1px solid #8c1d2f;
+  color: #fbf9f6;
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 15px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.seal-wordmark {
+  font-family: var(--font-serif);
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: #fbf9f6;
+}
+
+.masthead-nav {
+  display: flex;
+  align-items: stretch;
+  gap: 2px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.masthead-nav::-webkit-scrollbar {
+  display: none;
+}
+
+.tab-link {
+  appearance: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  background: transparent;
+  color: #c7b2b7;
+  padding: 16px 11px 14px;
+  font-family: var(--font-sans);
+  font-size: 12.5px;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: color 0.12s ease, border-color 0.12s ease;
+}
+
+.tab-link:hover {
+  color: #ffffff;
+}
+
+.tab-link.active {
+  color: #ffffff;
+  font-weight: 600;
+  border-bottom-color: #d96b7c;
+}
+
+.masthead-status {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #cbb6bb;
+  flex-shrink: 0;
+}
+
+.ink-square {
+  width: 6px;
+  height: 6px;
+  display: inline-block;
+  background: #4ade80;
+  flex-shrink: 0;
+}
+
+.ink-square.amber {
+  background: #f59e0b;
+}
+
+/* ==========================================================================
+   LEDGER CONTAINER & EDITORIAL PAGE HEADER
+   ========================================================================== */
+
+.ledger-page {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 28px 24px 72px;
+}
+
+.editorial-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  padding-bottom: 16px;
+  margin-bottom: 22px;
+  border-bottom: 2px solid var(--rule-heavy);
+  flex-wrap: wrap;
+}
+
+.editorial-kicker {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--wine-800);
+  margin-bottom: 4px;
+}
+
+.editorial-title {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  color: var(--ink);
+}
+
+.editorial-sub {
+  margin: 5px 0 0;
+  font-size: 13px;
+  color: var(--ink-mid);
+}
+
+.head-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* ==========================================================================
+   NOTICE TAPE
+   ========================================================================== */
+
+.notice-tape {
+  background: var(--wine-950);
+  color: #fbf9f6;
+  border-left: 4px solid var(--wine-600);
+  padding: 10px 16px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 12.5px;
+}
+
+/* ==========================================================================
+   ARCHITECTURAL LEDGER STRIPS & SHEETS (ZERO ROUNDED SAAS BOXES)
+   ========================================================================== */
+
+.figure-strip {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  background: var(--sheet);
+  border-top: 2px solid var(--wine-800);
+  border-bottom: 1px solid var(--rule-strong);
+  border-left: 1px solid var(--rule);
+  border-right: 1px solid var(--rule);
+  margin-bottom: 26px;
+}
+
+.figure-strip.cols-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.figure-cell {
+  padding: 16px 18px;
+  border-right: 1px solid var(--rule);
+}
+
+.figure-cell:last-child {
+  border-right: none;
+}
+
+.figure-kicker {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+.figure-num {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin-top: 4px;
+  font-variant-numeric: tabular-nums;
+}
+
+.figure-caption {
+  font-size: 11.5px;
+  color: var(--ink-mid);
+  margin-top: 3px;
+}
+
+/* Ledger Section Sheet */
+.ledger-section {
+  background: var(--sheet);
+  border-top: 2px solid var(--rule-heavy);
+  border-bottom: 1px solid var(--rule-strong);
+  border-left: 1px solid var(--rule);
+  border-right: 1px solid var(--rule);
+  margin-bottom: 26px;
+}
+
+.ledger-section.wine-top {
+  border-top-color: var(--wine-800);
+}
+
+.section-bar {
+  padding: 13px 20px;
+  border-bottom: 1px solid var(--rule);
+  background: var(--sheet-tint);
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.section-heading {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+.section-note {
+  font-size: 12px;
+  color: var(--ink-mid);
+}
+
+/* Responsive Ledger Entry Rows (Replaces horizontal-scrolling 5-col tables) */
+.entry-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.entry-row {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--rule);
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 18px;
+}
+
+.entry-row:last-child {
+  border-bottom: none;
+}
+
+.entry-row.two-col {
+  grid-template-columns: minmax(0, 1fr) auto;
+}
+
+.entry-primary {
+  min-width: 0;
+}
+
+.entry-serial {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: var(--wine-800);
+  margin-bottom: 2px;
+}
+
+.entry-title {
+  font-size: 14.5px;
+  font-weight: 650;
+  color: var(--ink);
+  line-height: 1.3;
+}
+
+.entry-sub {
+  font-size: 12px;
+  color: var(--ink-mid);
+  margin-top: 3px;
+}
+
+.entry-figures {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.entry-amount {
+  font-family: var(--font-serif);
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.entry-breakdown {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--ink-faint);
+  margin-top: 2px;
+}
+
+.entry-tail {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* ==========================================================================
+   TYPOGRAPHIC STATUS MARKS & SOVEREIGN FISCAL STAMP (ZERO PASTEL PILLS)
+   ========================================================================== */
+
+.status-mark {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.mark-glyph {
+  width: 7px;
+  height: 7px;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.status-mark.settled {
+  color: var(--ink-settled);
+}
+.status-mark.settled .mark-glyph {
+  background: var(--ink-settled);
+}
+
+.status-mark.hold {
+  color: var(--ink-hold);
+}
+.status-mark.hold .mark-glyph {
+  border: 1.5px solid var(--ink-hold);
+  background: transparent;
+}
+
+.status-mark.alert {
+  color: var(--ink-alert);
+}
+.status-mark.alert .mark-glyph {
+  background: var(--ink-alert);
+}
+
+.status-mark.wine {
+  color: var(--wine-800);
+}
+.status-mark.wine .mark-glyph {
+  background: var(--wine-800);
+}
+
+/* Sovereign Tax Stamp (Replaces generic "Stamped : Cleared" box) */
+.fiscal-stamp {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 10px;
+  border: 1px solid var(--wine-800);
+  outline: 1px solid var(--rule-strong);
+  outline-offset: -4px;
+  background: var(--wine-50);
+}
+
+.fiscal-stamp-meta {
+  text-align: left;
+}
+
+.fiscal-stamp-head {
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--wine-800);
+}
+
+.fiscal-stamp-irn {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-top: 1px;
+}
+
+.fiscal-stamp-csid {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--ink-faint);
+}
+
+.fiscal-hold-stamp {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding: 6px 10px;
+  border: 1px dashed var(--ink-hold);
+  background: transparent;
+}
+
+/* ==========================================================================
+   MILESTONE VOUCHER SHEET
+   ========================================================================== */
+
+.voucher-head {
+  padding: 18px 20px 14px;
+  border-bottom: 1px solid var(--rule);
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.voucher-strip {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border-bottom: 1px solid var(--rule);
+  background: var(--wine-50);
+}
+
+.voucher-cell {
+  padding: 12px 20px;
+  border-right: 1px solid var(--rule);
+}
+
+.voucher-cell:last-child {
+  border-right: none;
+}
+
+.voucher-foot {
+  padding: 12px 20px;
+  background: var(--sheet-tint);
+  border-top: 1px solid var(--rule);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* ==========================================================================
+   SHARP ARCHITECTURAL CONTROLS & BUTTONS (2px CORNERS)
+   ========================================================================== */
+
+.btn {
+  appearance: none;
+  border: 1px solid var(--rule-strong);
+  background: var(--sheet);
+  color: var(--ink);
+  padding: 7px 13px;
+  border-radius: 2px;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  white-space: nowrap;
+  text-decoration: none;
+  transition: background 0.12s ease, border-color 0.12s ease, color 0.12s ease;
+}
+
+.btn:hover {
+  background: var(--sheet-tint);
+  border-color: var(--ink-mid);
+}
+
+.btn-primary {
+  background: var(--wine-800);
+  border-color: var(--wine-950);
+  color: #fbf9f6;
+}
+
+.btn-primary:hover {
+  background: var(--wine-700);
+  border-color: var(--wine-950);
+}
+
+.btn-quiet {
+  border-color: transparent;
+  background: transparent;
+  color: var(--ink-mid);
+  padding: 6px 9px;
+}
+
+.btn-quiet:hover {
+  background: var(--sheet-tint);
+  color: var(--ink);
+}
+
+.btn-alert {
+  border-color: var(--ink-alert);
+  background: transparent;
+  color: var(--ink-alert);
+}
+
+.btn-alert:hover {
+  background: #f8eaea;
+}
+
+.btn-sm {
+  padding: 5px 10px;
+  font-size: 11.5px;
+}
+
+.currency-switcher {
+  display: inline-flex;
+  border: 1px solid var(--rule-strong);
+  background: var(--sheet);
+}
+
+.cur-btn {
+  appearance: none;
+  border: none;
+  border-right: 1px solid var(--rule);
+  background: transparent;
+  padding: 6px 10px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--ink-mid);
+  cursor: pointer;
+}
+
+.cur-btn:last-child {
+  border-right: none;
+}
+
+.cur-btn.active {
+  background: var(--wine-800);
+  color: #fbf9f6;
+}
+
+.quota-rule {
+  width: 110px;
+  height: 3px;
+  background: var(--rule);
+  margin-top: 6px;
+}
+
+.quota-fill {
+  height: 100%;
+  background: var(--wine-800);
+}
+
+/* ==========================================================================
+   MODALS & BRAND SPEC
+   ========================================================================== */
+
+.modal-veil {
+  position: fixed;
+  inset: 0;
+  background: rgba(23, 8, 11, 0.58);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 100;
+}
+
+.modal-sheet {
+  background: var(--sheet);
+  border: 1px solid var(--rule-heavy);
+  border-top: 3px solid var(--wine-800);
+  width: 100%;
+  max-width: 560px;
+  max-height: 88vh;
+  overflow-y: auto;
+  box-shadow: 0 22px 48px rgba(23, 8, 11, 0.28);
+}
+
+.modal-top {
+  padding: 16px 22px 13px;
+  border-bottom: 1px solid var(--rule);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.modal-content {
+  padding: 18px 22px;
+}
+
+.modal-actions {
+  padding: 12px 22px;
+  background: var(--sheet-tint);
+  border-top: 1px solid var(--rule);
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.field.full {
+  grid-column: 1 / -1;
+}
+
+.field label {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--ink-mid);
+}
+
+.field input,
+.field select {
+  padding: 8px 10px;
+  border: 1px solid var(--rule-strong);
+  border-radius: 2px;
+  font-size: 13px;
+  font-family: var(--font-sans);
+  color: var(--ink);
+  background: #ffffff;
+}
+
+.field input:focus,
+.field select:focus {
+  outline: 1px solid var(--wine-800);
+  border-color: var(--wine-800);
+}
+
+.code-plate {
+  background: var(--wine-950);
+  color: #f4ebe6;
+  padding: 12px 14px;
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.specimen-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-bottom: 26px;
+}
+
+.specimen-plate {
+  padding: 24px 20px;
+  min-height: 138px;
+  border: 1px solid var(--rule-strong);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.swatch-matrix {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border-top: 1px solid var(--rule);
+}
+
+.swatch-cell {
+  border-right: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+
+.swatch-cell:nth-child(4n) {
+  border-right: none;
+}
+
+.swatch-band {
+  height: 48px;
+}
+
+.swatch-info {
+  padding: 10px 12px;
+}
+
+/* ==========================================================================
+   RESPONSIVE BREAKPOINTS (CLEAN AT 620PX SPLIT-SCREEN AND 390PX MOBILE)
+   ========================================================================== */
+
+@media (max-width: 820px) {
+  .masthead-inner {
+    padding: 0 14px;
+  }
+
+  .masthead-left {
+    gap: 12px;
+  }
+
+  .tab-link {
+    padding: 14px 7px 12px;
+    font-size: 11.5px;
+  }
+
+  .masthead-status {
+    display: none;
+  }
+
+  .ledger-page {
+    padding: 20px 16px 56px;
+  }
+
+  .figure-strip,
+  .figure-strip.cols-3,
+  .voucher-strip {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .figure-cell:nth-child(2),
+  .voucher-cell:nth-child(2) {
+    border-right: none;
+  }
+
+  .figure-cell:nth-child(1),
+  .figure-cell:nth-child(2),
+  .voucher-cell:nth-child(1),
+  .voucher-cell:nth-child(2) {
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .entry-row {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .entry-figures {
+    text-align: left;
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+  }
+
+  .entry-tail {
+    justify-content: flex-start;
+  }
+
+  .fiscal-hold-stamp {
+    align-items: flex-start;
+  }
+
+  .specimen-grid,
+  .swatch-matrix,
+  .form-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}

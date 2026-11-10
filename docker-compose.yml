@@ -1,0 +1,19 @@
+services:
+  ugwo:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ugwo-ledger
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      PORT: "3000"
+      UGWO_DB_PATH: "/data/ugwo.db"
+      UGWO_KERNEL_BIN: "/app/priv/bin/ugwo-kernel"
+      UGWO_STATIC_DIR: "/app/priv/static"
+    volumes:
+      - ugwo_wal_data:/data
+
+volumes:
+  ugwo_wal_data:

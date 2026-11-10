@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: ugwo-ledger
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /healthz
+    envVars:
+      - key: PORT
+        value: "3000"
+      - key: UGWO_DB_PATH
+        value: /data/ugwo.db
+    disk:
+      name: ugwo-wal-disk
+      mountPath: /data
+      sizeGB: 5

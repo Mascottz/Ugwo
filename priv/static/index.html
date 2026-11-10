@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ụgwọ : Revenue &amp; Fiscal Ledger</title>
+  <link rel="stylesheet" href="/assets/styles.css?v=5" />
+</head>
+<body>
+  <div id="elm-root"></div>
+  <script src="/assets/ugwo.js?v=5"></script>
+  <script>
+    Elm.Main.init({
+      node: document.getElementById("elm-root"),
+      flags: window.location.hash || ""
+    });
+  </script>
+</body>
+</html>
