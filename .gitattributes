@@ -1,0 +1,3 @@
+# priv/static/ugwo.js is compiled output of ui/src/Main.elm (elm make --optimize).
+# Mark it as generated: GitHub then leaves it out of language stats and collapses it in diffs.
+priv/static/ugwo.js linguist-generated=true
