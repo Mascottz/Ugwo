@@ -1,4 +1,6 @@
 /build/
+/priv/bin/
+/priv/release/
 /ui/elm-stuff/
 /priv/data/*.db*
 *.log
